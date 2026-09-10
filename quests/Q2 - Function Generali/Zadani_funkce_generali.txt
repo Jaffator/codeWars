@@ -1,0 +1,36 @@
+Vytvořte funkci, která bude mít 4 paremetry:
+
+
+Povinné parametry:
+
+1.param - přijímá libovolný kontejner stringů, který je možné použít ve for cyklu
+
+[ "Start programu 11:00",
+  "Velmi zatížené CPU wrn 5061",
+  "Dochází místo na disku 5062",
+  "Vyčerpáno místa na disku err 42: disk /dev/sdb", 
+  "Vyčerpáno místa na disku2 err 42: disk /dev/sdb  wrn 34", 
+  "Konec programu 11:03"
+  ]
+
+2.param - přijímá tupl stringů ... např  ('WRN', 'err')
+
+
+Volitelné parametry:
+
+3. ignore_case
+4. sort_result
+
+
+Funkce vrací:
+
+list řetězců z 1. parametru ve kterých se našel libovolný substring dodaný v 2. parametru.
+
+ignore_case je-li
+- False ... tak vyhledávané substringy  musí odpovídat velikost písmen hledaných substringů
+- True ...  tak vyhledávání substrinků je case insensitive 
+... ale vyfiltrované řetězce ve výstupní listu musí odpovídat originálnímu vstupu.
+
+sort_result 
+- je-li True, tak řetězce ve výstupním listu abecedně seřaď
+

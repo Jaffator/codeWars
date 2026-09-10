@@ -1,0 +1,24 @@
+Zadání: Telemetry Event Dispatcher
+
+Vytvoř systém, který simuluje příjem a zpracování dat ze senzorů (např. z tlumiče nebo hrudního pásu).
+
+1. Typy a Rozhraní (Data Structures)
+* Definuj základní interface pro událost (SensorEvent), který bude obsahovat id, timestamp a type.
+* Vytvoř specifické typy/interfacy pro různé události (např. SuspensionBottomOut obsahující sílu nárazu a HeartRateSpike obsahující hodnotu tepu).
+
+2. Třída Dispatcher (OOP & Generics)
+* Vytvoř třídu Dispatcher, která bude fungovat jako pub/sub systém.
+* Implementuj metodu subscribe. Ta přijme typ události a callback. Callback se vykoná, když událost nastane.
+* Výzva: Použij TypeScript Generics, aby callback automaticky očekával správný payload podle typu události (např. při odběru tepovky dostane callback rovnou číslo, ne obecný objekt).
+* Implementuj metodu publish(event), která zavolá všechny registrované callbacky pro daný typ události.
+
+3. Třída RideProcessor (Asynchrony & Callbacks)
+* Třída přijme v konstruktoru instanci Dispatcheru.
+* Implementuj metodu processStream(events, onComplete).
+* Metoda asynchronně projde pole událostí (simuluj zpoždění např. 200 ms pomocí setTimeout), každou událost pošle do Dispatcheru a po zpracování celého pole zavolá finální callback onComplete s celkovým počtem zpracovaných událostí.
+
+Očekávané chování v hlavní funkci:
+1. Inicializuješ Dispatcher a RideProcessor.
+2. Zaregistruješ přes subscribe dva různé callbacky (jeden bude logovat do konzole varování o propružení tlumiče, druhý vysokou tepovku).
+3. Vytvoříš testovací pole s cca 3-4 událostmi různých typů.
+4. Zavoláš processStream a v onComplete callbacku vypíšeš, že je hotovo.
