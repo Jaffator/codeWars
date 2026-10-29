@@ -22,7 +22,8 @@ function debounce(fn: Function, ms) {
 const searchApi = (query) => {
   console.log(`[${new Date().toLocaleTimeString()}] 🚀 Odesílám API dotaz pro: "${query}"`);
 };
-
+const test = debounce(() => console.log("a"), 500);
+test();
 // Obalíme funkci s debounce na 1000 ms (1 sekunda)
 const debouncedSearch = debounce(searchApi, 1000);
 
