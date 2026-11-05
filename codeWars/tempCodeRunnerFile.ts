@@ -1,1 +1,1 @@
-      //   await sleep(wait);
+/\p{L}+/gu
